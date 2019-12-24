@@ -12,7 +12,8 @@ local v2ray = {
     loglevel = "warning"
   },
     -- 传入连接
-    inbound = {
+     inbounds = {
+         {
         port = local_port,
         protocol = "dokodemo-door",
         settings = {
@@ -23,6 +24,19 @@ local v2ray = {
             enabled = true,
             destOverride = { "http", "tls" }
         }
+          },
+     
+          {
+         port = 1080,
+         listen = "0.0.0.0",
+         protocol = "socks",
+         settings = {
+             auth = "noauth",
+             udp = true,
+             ip = "127.0.0.1"
+          }
+        }
+
     },
     -- 传出连接
     outbound = {
